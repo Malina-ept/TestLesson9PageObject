@@ -31,12 +31,16 @@ public class LoginPage {
     public WebElement submitForm;
 
     public void auth() {
+
+
 //        Properties property = new Properties();
 //
 //        String login = property.getProperty("login");
 //        String password = property.getProperty("password");
         String login = "malina.katrina@gmail.com";
         String password = "123456";
+//        public final String login = System.getProperties().getProperty("login");
+//        public final String password = System.getProperties().getProperty("password");
 
 //        final String login = System.getProperties().getProperty("login");
 //        final String password = System.getProperties().getProperty("password");

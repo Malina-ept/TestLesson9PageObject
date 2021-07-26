@@ -44,6 +44,7 @@ public class TestLesson9PageObject {
         ContactsPage contactsPage = PageFactory.initElements(driver, ContactsPage.class);
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 
+
         //1. Открыть otus.ru
         driver.get(("https://otus.ru"));
         logger.info("Открыта страница Отус");
@@ -56,11 +57,7 @@ public class TestLesson9PageObject {
         //3. Войти в личный кабинет
         contactsPage.enterLK();
         //4. В разделе "О себе" заполнить все поля "Личные данные"
-        contactsPage.name.clear();
-        contactsPage.nameLatin.clear();
-        contactsPage.lastName.clear();
-        contactsPage.lastNameLatin.clear();
-        contactsPage.dateOfBirth.clear();
+        contactsPage.clearPersonalData();
 
         contactsPage.name.sendKeys(OtusWebsiteContactInformation.NAME);
         contactsPage.nameLatin.sendKeys(OtusWebsiteContactInformation.NAME_LATIN);
