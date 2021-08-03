@@ -1,14 +1,10 @@
 package pages;
 
-import constants.OtusWebsiteContactInformation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ContactsPage {
 
@@ -21,10 +17,9 @@ public class ContactsPage {
         logger.info("Открыт личный кабинет");
 
 
-
     }
 
-    public  void clearPersonalData() {
+    public void clearPersonalData() {
         name.clear();
         nameLatin.clear();
         lastName.clear();
@@ -32,13 +27,13 @@ public class ContactsPage {
         dateOfBirth.clear();
     }
 
-//    public void fillInPersonalData() {
-//        name.sendKeys(OtusWebsiteContactInformation.NAME);
-//        nameLatin.sendKeys(OtusWebsiteContactInformation.NAME_LATIN);
-//        lastName.sendKeys(OtusWebsiteContactInformation.LAST_NAME);
-//        lastNameLatin.sendKeys(OtusWebsiteContactInformation.LAST_NAME_LATIN);
-//        dateOfBirth.sendKeys(OtusWebsiteContactInformation.DATE_OF_BIRTH);
-//    }
+    public void fillInPersonalData(String nameF, String nameL, String nameLast, String nameLastLatin, String birthD) {
+        name.sendKeys(nameF);
+        nameLatin.sendKeys(nameL);
+        lastName.sendKeys(nameLast);
+        lastNameLatin.sendKeys(nameLastLatin);
+        dateOfBirth.sendKeys(birthD);
+    }
 
 
     @FindBy(id = "id_fname")
@@ -78,11 +73,9 @@ public class ContactsPage {
     public WebElement saveButton;
 
 
-
     public ContactsPage(WebDriver driver) {
         this.driver = driver;
     }
-
 
 
 }

@@ -5,11 +5,11 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-import java.util.Properties;
 
 public class LoginPage {
+
+    public static final String login = System.getProperties().getProperty("login");
+    public static final String password = System.getProperties().getProperty("password");
 
     private final WebDriver driver;
     private Logger logger = LogManager.getLogger(LoginPage.class);
@@ -32,18 +32,6 @@ public class LoginPage {
 
     public void auth() {
 
-
-//        Properties property = new Properties();
-//
-//        String login = property.getProperty("login");
-//        String password = property.getProperty("password");
-        String login = "malina.katrina@gmail.com";
-        String password = "123456";
-//        public final String login = System.getProperties().getProperty("login");
-//        public final String password = System.getProperties().getProperty("password");
-
-//        final String login = System.getProperties().getProperty("login");
-//        final String password = System.getProperties().getProperty("password");
         ButtonEntrance.click();
         loginInput.sendKeys(login);
         logger.info("Введен логин");
@@ -52,8 +40,5 @@ public class LoginPage {
         submitForm.submit();
         logger.info("Авторизация успешна");
     }
-
-    public final String userName = System.getProperties().getProperty("login");
-    public final String userPassword = System.getProperties().getProperty("password");
 
 }

@@ -3,20 +3,20 @@ package constants;
 public class OtusWebsiteContactInformation {
 
 
-    public final static String NAME =
+    public static final String NAME =
             "Екатерина";
-    public final static String NAME_LATIN =
+    public static final String NAME_LATIN =
             "Ekaterina";
-    public final static String LAST_NAME =
+    public static final String LAST_NAME =
             "Малинкина";
-    public final static String LAST_NAME_LATIN =
+    public static final String LAST_NAME_LATIN =
             "Malinkina";
-    public final static String DATE_OF_BIRTH =
+    public static final String DATE_OF_BIRTH =
             "01.01.2000";
-    public final static String COUNTRY =
+    public static final String COUNTRY =
             "Россия";
-    public final static String CITY =
+    public static final String CITY =
             "Москва";
-    public final static String ENGLISH_LEVEL =
+    public static final String ENGLISH_LEVEL =
             "Начальный уровень (Beginner)";
 }

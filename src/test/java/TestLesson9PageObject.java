@@ -49,7 +49,7 @@ public class TestLesson9PageObject {
         driver.get(("https://otus.ru"));
         logger.info("Открыта страница Отус");
 
-        driver.manage().window().setSize(new Dimension(1900,800));
+        driver.manage().window().setSize(new Dimension(1900, 800));
         logger.info("Открыто окно браузера 1900*800");
 
         //2. Авторизоваться на сайте
@@ -59,26 +59,19 @@ public class TestLesson9PageObject {
         //4. В разделе "О себе" заполнить все поля "Личные данные"
         contactsPage.clearPersonalData();
 
-        contactsPage.name.sendKeys(OtusWebsiteContactInformation.NAME);
-        contactsPage.nameLatin.sendKeys(OtusWebsiteContactInformation.NAME_LATIN);
-        contactsPage.lastName.sendKeys(OtusWebsiteContactInformation.LAST_NAME);
-        contactsPage.lastNameLatin.sendKeys(OtusWebsiteContactInformation.LAST_NAME_LATIN);
-        contactsPage.dateOfBirth.sendKeys(OtusWebsiteContactInformation.DATE_OF_BIRTH);
+        contactsPage.fillInPersonalData(OtusWebsiteContactInformation.NAME, OtusWebsiteContactInformation.NAME_LATIN, OtusWebsiteContactInformation.LAST_NAME, OtusWebsiteContactInformation.LAST_NAME_LATIN, OtusWebsiteContactInformation.DATE_OF_BIRTH);
         //Страна
-        if(!contactsPage.country.getText().contains(OtusWebsiteContactInformation.COUNTRY))
-        {
+        if (!contactsPage.country.getText().contains(OtusWebsiteContactInformation.COUNTRY)) {
             contactsPage.country.click();
             contactsPage.countryRussia.click();
         }
         //Город
-        if(!contactsPage.city.getText().contains(OtusWebsiteContactInformation.CITY))
-        {
+        if (!contactsPage.city.getText().contains(OtusWebsiteContactInformation.CITY)) {
             contactsPage.city.click();
             contactsPage.cityMoscow.click();
         }
         //Уровень английского
-        if(!contactsPage.englishLevel.getText().contains(OtusWebsiteContactInformation.ENGLISH_LEVEL))
-        {
+        if (!contactsPage.englishLevel.getText().contains(OtusWebsiteContactInformation.ENGLISH_LEVEL)) {
             contactsPage.englishLevel.click();
             contactsPage.englishLevelBeginner.click();
         }
@@ -102,7 +95,7 @@ public class TestLesson9PageObject {
         contactsPageAfterFilling.enterLK();
         //9. Проверить, что в разделе о себе отображаются указанные ранее данные
         System.out.println("Привет!");
-        Assert.assertEquals( "Ошибка в имени", OtusWebsiteContactInformation.NAME, contactsPageAfterFilling.name.getAttribute("value"));
+        Assert.assertEquals("Ошибка в имени", OtusWebsiteContactInformation.NAME, contactsPageAfterFilling.name.getAttribute("value"));
         Assert.assertEquals("Ошибка в имени на латинском", OtusWebsiteContactInformation.NAME_LATIN, contactsPageAfterFilling.nameLatin.getAttribute("value"));
         Assert.assertEquals("Ошибка в фамилии", OtusWebsiteContactInformation.LAST_NAME, contactsPageAfterFilling.lastName.getAttribute("value"));
         Assert.assertEquals("Ошибка в фамилии на латинском", OtusWebsiteContactInformation.LAST_NAME_LATIN, contactsPageAfterFilling.lastNameLatin.getAttribute("value"));
@@ -111,6 +104,7 @@ public class TestLesson9PageObject {
         Assert.assertEquals("Ошибка в городе", OtusWebsiteContactInformation.CITY, contactsPageAfterFilling.city.getText());
         Assert.assertEquals("Ошибка в уровне англ.", OtusWebsiteContactInformation.ENGLISH_LEVEL, contactsPageAfterFilling.englishLevel.getText());
     }
+
 
 }
 
